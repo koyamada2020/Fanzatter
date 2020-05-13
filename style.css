@@ -1,0 +1,70 @@
+.my-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-width: 1000px;
+    padding-bottom: 1rem;
+}
+
+.my-body {
+    font-size: 1.2rem;
+    box-sizing: content-box;
+    background-color: #f5f5f5;
+}
+
+#resultContainer {
+    overflow: hidden;
+}
+
+#searchButtons {
+    text-align: right;
+}
+
+#searchButtons button {
+    margin-top: 3px;
+}
+
+.item {
+    float: left;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.item img {
+    width: 476px;
+    height: 306px;
+}
+
+.item iframe {
+    width: 476px;
+    height: 306px;
+}
+
+#popularTag {
+    margin-top: 2rem;
+}
+
+#resultContainer {
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.tyuuigaki p{
+    margin-bottom: 0rem;
+    font-size: 15px;
+}
+
+/* bootstrap */
+.input-group {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.input-group-btn {
+    width: auto;
+}
+
+.list-inline-item {
+    margin-top: 0.5rem;
+}
+

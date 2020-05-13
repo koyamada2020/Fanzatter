@@ -11,6 +11,8 @@ function setTagList () {
     for (let tag of tags) {
         // liタグを生成
         const liElm = document.createElement('li');
+        // liタグにクラスを設定
+        liElm.className = 'list-inline-item btn btn-primary';
         // liタグ内にテキストを入れる
         liElm.textContent = tag;
         // addTag関数を設定
@@ -41,6 +43,8 @@ function addTag () {
     if (liElms.length <= 0) {
         // liタグを生成
         const liElm = document.createElement('li');
+        // liタグにclassを設定する
+        liElm.className = 'list-inline-item btn btn-primary';
         // liタグにクリックした要素のテキストを入れる
         liElm.textContent = this.textContent;
         // クリックすると自分自身を消す関数を設定
@@ -58,6 +62,8 @@ function addTag () {
         if (keywords.indexOf(this.textContent) < 0) {
             // liタグを生成
             const liElm = document.createElement('li');
+            // liタグにclassを設定する
+            liElm.className = 'list-inline-item btn btn-primary';
             // liタグにクリックした要素のテキストを入れる
             liElm.textContent = this.textContent;
             // クリックすると自分自身を消す関数を設定
@@ -120,6 +126,8 @@ function registKeyword () {
                 const ulElm = document.querySelector('#selectedTags').children[1];
                 // liタグを生成
                 const liElm = document.createElement('li');
+                // liタグにclassを設定する
+                liElm.className = 'list-inline-item btn btn-primary';
                 // liタグに入力したキーワードを入れる
                 liElm.textContent = wordArr[i];
                 // 関数セット
@@ -172,7 +180,7 @@ function generateRequestUrl (_keywords, _sort = 'date', _offset = 1) {
     const site = 'FANZA';
     const service = 'digital';
     const floor = 'videoa';
-    const hits = 100;
+    const hits = 50;
     const offset = _offset;
     const sort = _sort;
     const keyword = _keywords.join(' ');
@@ -203,7 +211,7 @@ function createImgElementFromJson(json) {
         rcElm.removeChild(rcElm.lastChild);
     }
     // nだけ要素を作成 apiの仕様上100件まで取得できる 数字が大きいほど読み込みしない、こちらのサーバーの設定が原因？
-    const n = 100;
+    const n = 50;
     for (let i = 0; i < n; i++) {
         // 商品ごとに情報を取得
         const item = json.result.items[i];
@@ -222,9 +230,9 @@ function createImgElementFromJson(json) {
         // 表示する画像をsrcに代入
         imgElm.src = imgL;
         // 画像の幅を設定
-        imgElm.width = 476;
+ 
         // 画像の高さを設定
-        imgElm.height = 306;
+        // imgElm.height = 306;
         // クリックすると動画に変わる関数を設定
         imgElm.onclick = changeToMovie;
         // 要素を入れ子にする <div><div><img/></div></div>
@@ -247,6 +255,7 @@ function createImgElement(value) {
 
     // リクエストURL
     let requestUrl = generateRequestUrl(keyword, sort, offset);
+    console.log(requestUrl);
     // 指定URLにGETリクエスト
     fetch(requestUrl)
         .then((response) => {
@@ -286,7 +295,8 @@ function createImgElement(value) {
 }
 
 function getKeyFromTag() {
-    const slctTags = document.querySelector('#selectedTags').children[1];
+    const slctTags = document.querySelector('#selectedTags');
+    console.log(299, slctTags);
     const liTag = slctTags.getElementsByTagName('li');
     const keyword = [];
         for (let i = 0; i < liTag.length; i++) {
